@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: db 
+  labels: 
+    name: postgress-db-svc
+    app: voting-app
+spec:
+  type: ClusterIP
+  selector:
+    name: postgress-db-pod 
+    app: voting-app
+  ports:
+    - port: 5432
+      targetPort: 5432
